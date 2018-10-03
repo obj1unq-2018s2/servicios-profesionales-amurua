@@ -1,0 +1,58 @@
+import universidades.*
+
+
+describe "test de universidades"{
+	
+	var sanMartin
+	var rosario
+	var corrientes
+	var hurlingham
+
+	fixture {
+		sanMartin = new Universidad()
+		rosario = new Universidad()
+		corrientes = new Universidad()
+		hurlingham = new Universidad()
+		
+		sanMartin.provincia("Buenos Aires")
+		sanMartin.honorariosPorHoraRecomendados(3500)
+		
+		rosario.provincia("Santa Fe")
+		rosario.honorariosPorHoraRecomendados(2800)
+		
+		corrientes.provincia("Corrientes")
+		corrientes.honorariosPorHoraRecomendados(4200)
+		
+		hurlingham.provincia("Buenos Aires")
+		hurlingham.honorariosPorHoraRecomendados(8800)
+	}
+	
+	test "Universidad de San Martin" {
+	
+		assert.equals("Buenos Aires", sanMartin.provincia())
+		assert.equals(3500, sanMartin.honorariosPorHoraRecomendados())
+	
+	}
+	
+		test "Universidad de Rosario" {
+	
+		assert.equals("Santa Fe", rosario.provincia())
+		assert.equals(2800, rosario.honorariosPorHoraRecomendados())
+	
+	}
+	
+		test "Universidad de Corrientes" {
+	
+		assert.equals("Corrientes", corrientes.provincia())
+		assert.equals(4200, corrientes.honorariosPorHoraRecomendados())
+	
+	}
+	
+		test "Universidad de Hurlingham" {
+	
+		assert.equals("Buenos Aires", hurlingham.provincia())
+		assert.equals(8800, hurlingham.honorariosPorHoraRecomendados())
+	
+	}
+
+}

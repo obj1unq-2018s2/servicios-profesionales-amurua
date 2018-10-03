@@ -1,0 +1,70 @@
+import profesionales.*
+import universidades.*
+
+describe "profesionales"{
+				
+	var sanMartin
+	var rosario
+	var corrientes
+	var hurlingham
+	
+	var juana
+	var melina
+	var rocio
+	var luciana
+
+	fixture {
+		sanMartin = new Universidad()
+		rosario = new Universidad()
+		corrientes = new Universidad()
+		hurlingham = new Universidad()
+		
+		sanMartin.provincia("Buenos Aires")
+		sanMartin.honorariosPorHoraRecomendados(3500)
+		
+		rosario.provincia("Santa Fe")
+		rosario.honorariosPorHoraRecomendados(2800)
+		
+		corrientes.provincia("Corrientes")
+		corrientes.honorariosPorHoraRecomendados(4200)
+		
+		hurlingham.provincia("Buenos Aires")
+		hurlingham.honorariosPorHoraRecomendados(8800)
+		
+		juana = new ProfesionalVinculado()
+		melina = new ProfesionalAsociado()
+		rocio = new ProfesionalLibre()
+		luciana = new ProfesionalLibre()
+		
+		juana.universidad(rosario)
+		melina.universidad(corrientes)
+		rocio.universidad(hurlingham)
+		rocio.honorariosPorHora(5000)
+		rocio.provinciasDondePuedeTrabajar(["Santa Fe","Cordoba","Buenos Aires"])
+		luciana.universidad(rosario)
+		luciana.honorariosPorHora(3200)
+		luciana.provinciasDondePuedeTrabajar(["Santa Fe","Entre Ríos"])
+	}
+	
+	test "test juana" {	
+		assert.equals(rosario, juana.universidad())
+	}
+	
+	test "test melina" {	
+		assert.equals(corrientes, melina.universidad())
+	}
+	
+	test "test rocio" {	
+		assert.equals(hurlingham,rocio.universidad())
+		assert.equals(5000,rocio.honorariosPorHora())
+		assert.equals(["Santa Fe","Cordoba","Buenos Aires"],rocio.provinciasDondePuedeTrabajar())
+	}
+	
+	test "test luciana" {	
+		assert.equals(rosario,luciana.universidad())
+		assert.equals(3200,luciana.honorariosPorHora())
+		assert.equals(["Santa Fe","Entre Ríos"],luciana.provinciasDondePuedeTrabajar())
+	}
+	
+	
+}
