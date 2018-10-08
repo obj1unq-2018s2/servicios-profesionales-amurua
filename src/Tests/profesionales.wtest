@@ -2,8 +2,13 @@ import profesionales.*
 import universidades.*
 
 describe "profesionales"{
-				
-	var sanMartin
+
+	// TODO Se lee mejor así (y detecta un error que estaba oculto!)				
+	var sanMartin = new Universidad(
+		provincia = "Buenos Aires",
+		honorariosPorHoraRecomendados = 3500
+	)
+	
 	var rosario
 	var corrientes
 	var hurlingham
@@ -14,13 +19,10 @@ describe "profesionales"{
 	var luciana
 
 	fixture {
-		sanMartin = new Universidad()
 		rosario = new Universidad()
 		corrientes = new Universidad()
 		hurlingham = new Universidad()
 		
-		sanMartin.provincia("Buenos Aires")
-		sanMartin.honorariosPorHoraRecomendados(3500)
 		
 		rosario.provincia("Santa Fe")
 		rosario.honorariosPorHoraRecomendados(2800)

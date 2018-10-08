@@ -52,7 +52,8 @@ describe"profesionales"{
 		empresa.profesionales([juana,melina,rocio,luciana])
 		empresa.honorario(3500)
 	}
-
+	
+	// TODO Deberías dividir en varios tests.
 	test "Empresa" {
 	
 		assert.equals([rocio],empresa.profesionalesCaros())

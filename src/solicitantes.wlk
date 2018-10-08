@@ -14,6 +14,7 @@ class Persona {
 	var property provincia
 	
 	method puedeSerAtendida(profesional){
+		// TODO Mejor contains
 		return profesional.provinciasDondePuedeTrabajar().any{prov => prov == provincia}
 	}
 	

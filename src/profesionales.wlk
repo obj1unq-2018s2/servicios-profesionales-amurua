@@ -12,6 +12,7 @@ class ProfesionalAsociado {
 	method honorariosPorHora() { return 3000 }
 	
 	method cobrarImporte(monto){
+		// TODO Rompe encapsulamiento, debe delegar.
 		asociacionProfesionalesDelLitoral.totalRecibidoPorDonaciones(asociacionProfesionalesDelLitoral.totalRecibidoPorDonaciones() + monto)
 	}
 }
@@ -32,7 +33,10 @@ class ProfesionalVinculado {
 	}
 	
 	method cobrarImporte(monto){
-		self.universidad().totalRecibidoPorDonaciones(self.universidad().totalRecibidoPorDonaciones() + monto / 2)
+		// TODO Rompe el encapsulamiento de la universidad
+		self.universidad().totalRecibidoPorDonaciones(
+			self.universidad().totalRecibidoPorDonaciones() + monto / 2
+		)
 	}
 }
 
